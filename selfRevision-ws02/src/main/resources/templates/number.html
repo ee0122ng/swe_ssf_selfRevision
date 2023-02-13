@@ -10,7 +10,7 @@
         <h1>How many numbers do you wish to generate?</h1>
 
         <div>
-            <form method="GET" data-th-action="@{/number/totalImage}" data-th-object="${input}">
+            <form method="POST" data-th-action="@{/number/totalImage}" data-th-object="${input}">
                 <input type="number" min="1" max="30" style="width:300" data-th-field="*{num}">
                 <button>Generate</button>
             </form>
