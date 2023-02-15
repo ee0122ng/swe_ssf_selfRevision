@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Form</title>
+    </head>
+    <body>
+
+        <h1>Contact Information</h1>
+
+        <div>
+            <form method="POST" data-th-action="@{/contact}" data-th-object="${contact}">
+
+                <div>
+                    <label>Name</label>
+                    <br>
+                    <input type="text" data-th-field="*{name}">
+                </div>
+                <div data-th-if="${#fields.hasErrors('name')}">
+                    <p data-th-errors="*{name}" style="color:crimson"></p>
+                </div>
+
+                <br><br>
+
+                <div>
+                    <label>Email</label>
+                    <br>
+                    <input type="text" data-th-field="*{email}">
+                </div>
+                <div data-th-if="${#fields.hasErrors('email')}">
+                    <p data-th-errors="*{email}" style="color:crimson"></p>
+                </div>
+
+                <br><br>
+
+                <div>
+                    <label>Phone Number</label>
+                    <br>
+                    <input type="text" data-th-field="*{phoneNumber}">
+                </div>
+                <div data-th-if="${#fields.hasErrors('phoneNumber')}">
+                    <p data-th-errors="*{phoneNumber}" style="color:crimson"></p>
+                </div>
+
+                <br><br>
+
+                <div>
+                    <label>Birth Date</label>
+                    <br>
+                    <input type="text" data-th-field="*{birthDate}">
+                </div>
+                <div data-th-if="${#fields.hasErrors('birthDate')}">
+                    <p data-th-errors="*{birthDate}" style="color:crimson"></p>
+                </div>
+                <div data-th-if="${#fields.hasErrors('age')}">
+                    <p data-th-errors="*{age}" style="color:crimson"></p>
+                </div>
+
+                <br><br>
+
+                <div>
+                    <button style="background-color:rgb(163, 160, 160); color:black">Submit</button>
+                </div>
+
+
+            </form>
+        </div>
+
+    </body>
+</html>
