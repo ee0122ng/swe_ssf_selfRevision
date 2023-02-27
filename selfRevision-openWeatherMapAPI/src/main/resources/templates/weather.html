@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Current Weather</title>
+    </head>
+    <body>
+        <h1>City Weather Search</h1>
+
+        <form method="GET" action="/api/weather">
+            <input type="text" name="city" placeholder="City Name" size="30">
+            <br><br>
+            <span><button>Search</button></span>
+            <span><button formmethod="GET" formaction="/">Reset</button></span>
+        </form>
+
+        <h2>Weather Summary</h2>
+
+            <div data-th-object="${weather}">
+
+                <h3 data-th-text="*{location}"></h3>
+
+                <ul>
+                    <li>
+                        <strong>Main:</strong>
+                        <span data-th-text="*{main}"></span>
+                    </li>
+    
+                    <li>
+                        <strong>Description:</strong>
+                        <span data-th-text="*{desc}"></span>
+                    </li>
+    
+                    <li>
+                        <strong>Temp:</strong>
+                        <span data-th-text="*{temp}"></span>
+    
+                        <ul>
+                            <li>
+                                <strong>Temp_Min:</strong>
+                                <span data-th-text="*{temp_min}"></span>
+                            </li>
+                            <li>
+                                <strong>Temp_Max:</strong>
+                                <span data-th-text="*{temp_max}"></span>
+                            </li>
+    
+                        </ul>
+    
+                    </li>
+    
+                    <li>
+                        <strong>Humidity:</strong>
+                        <span data-th-text="*{humidity}"></span>
+                    </li>
+    
+                </ul>
+
+            </div>
+
+    </body>
+</html>
