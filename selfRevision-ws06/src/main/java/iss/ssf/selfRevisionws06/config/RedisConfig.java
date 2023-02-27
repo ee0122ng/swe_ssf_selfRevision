@@ -51,6 +51,7 @@ public class RedisConfig {
         RedisSerializer<Object> serializerObj = new JdkSerializationRedisSerializer(getClass().getClassLoader());
         redisTemplate.setValueSerializer(serializerObj);
         redisTemplate.setHashValueSerializer(serializerObj);
+        // redisTemplate.setHashValueSerializer(new StringRedisSerializer());
 
         return redisTemplate;
     }

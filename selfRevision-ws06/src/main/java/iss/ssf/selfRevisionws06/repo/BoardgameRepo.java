@@ -20,12 +20,12 @@ public class BoardgameRepo {
 
     public void insertGame(Boardgame game) {
         redisTemplate.opsForList().leftPush("boardgameIdList", game.getId());
-        redisTemplate.opsForHash().put("boardgameMap", game.getId(), game);
+        redisTemplate.opsForHash().put("boardgameMap", game.getId(), game.createGameJson().toString());
     }
 
-    public Boardgame getGameById(String id) {
+    public String getGameById(String id) {
 
-        return (Boardgame) redisTemplate.opsForHash().get("boardgameMap", id);
+        return (String) redisTemplate.opsForHash().get("boardgameMap", id);
 
     }
 

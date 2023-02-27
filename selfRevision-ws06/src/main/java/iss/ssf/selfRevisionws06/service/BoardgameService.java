@@ -53,8 +53,9 @@ public class BoardgameService {
 
         if (index != Constants.NOT_FOUND) {
 
-            Boardgame game = gameRepo.getGameById(id);
-            JsonObject gameJson = game.createGameJson();
+            String gameString = gameRepo.getGameById(id);
+            JsonReader jReader = Json.createReader(new StringReader(gameString));
+            JsonObject gameJson = jReader.readObject();
 
             return Optional.of(gameJson);
 
